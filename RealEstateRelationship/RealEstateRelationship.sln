@@ -9,11 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{8533C784-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7E42D368-8D7B-4B8D-91AE-F88269811FE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateRelationship.Domain", "RealEstateRelationship.Domain\RealEstateRelationship.Domain.csproj", "{C09882B0-289E-4162-80C2-039E08183AC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateRelationship.Domain", "RealEstateRelationship.Domain\RealEstateRelationship.Domain.csproj", "{C09882B0-289E-4162-80C2-039E08183AC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateRelationship.Application", "RealEstateRelationship.Application\RealEstateRelationship.Application.csproj", "{2B015C4F-806A-4121-9D93-299DF1E7E721}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateRelationship.Application", "RealEstateRelationship.Application\RealEstateRelationship.Application.csproj", "{2B015C4F-806A-4121-9D93-299DF1E7E721}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateRelationship.WebAPI", "RealEstateRelationship.WebAPI\RealEstateRelationship.WebAPI.csproj", "{B7FC2930-7DB0-46EB-B035-46B8E67C82D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateRelationship.WebAPI", "RealEstateRelationship.WebAPI\RealEstateRelationship.WebAPI.csproj", "{B7FC2930-7DB0-46EB-B035-46B8E67C82D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1DE607F8-6403-4E8B-A919-63C18387A84F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{9DD5EAA2-EC0A-4869-98EF-B7D0CAA351F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealEstateRelationship.Infrastructure", "RealEstateRelationship.Infrastructure\RealEstateRelationship.Infrastructure.csproj", "{78B47D12-8963-4AB0-9AB2-045828DA6B3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstateRelationShip.Test", "RealEstateRelationShip.Test\RealEstateRelationShip.Test.csproj", "{61E6D415-CA7E-409C-A271-725C3C455693}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +41,14 @@ Global
 		{B7FC2930-7DB0-46EB-B035-46B8E67C82D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7FC2930-7DB0-46EB-B035-46B8E67C82D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7FC2930-7DB0-46EB-B035-46B8E67C82D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B47D12-8963-4AB0-9AB2-045828DA6B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B47D12-8963-4AB0-9AB2-045828DA6B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B47D12-8963-4AB0-9AB2-045828DA6B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B47D12-8963-4AB0-9AB2-045828DA6B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E6D415-CA7E-409C-A271-725C3C455693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E6D415-CA7E-409C-A271-725C3C455693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E6D415-CA7E-409C-A271-725C3C455693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E6D415-CA7E-409C-A271-725C3C455693}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,7 +57,11 @@ Global
 		{7E42D368-8D7B-4B8D-91AE-F88269811FE5} = {33EDA331-07BA-45A8-ADF4-1C137C9C3A0F}
 		{C09882B0-289E-4162-80C2-039E08183AC6} = {7E42D368-8D7B-4B8D-91AE-F88269811FE5}
 		{2B015C4F-806A-4121-9D93-299DF1E7E721} = {7E42D368-8D7B-4B8D-91AE-F88269811FE5}
-		{B7FC2930-7DB0-46EB-B035-46B8E67C82D5} = {7E42D368-8D7B-4B8D-91AE-F88269811FE5}
+		{B7FC2930-7DB0-46EB-B035-46B8E67C82D5} = {9DD5EAA2-EC0A-4869-98EF-B7D0CAA351F3}
+		{1DE607F8-6403-4E8B-A919-63C18387A84F} = {33EDA331-07BA-45A8-ADF4-1C137C9C3A0F}
+		{9DD5EAA2-EC0A-4869-98EF-B7D0CAA351F3} = {33EDA331-07BA-45A8-ADF4-1C137C9C3A0F}
+		{78B47D12-8963-4AB0-9AB2-045828DA6B3D} = {1DE607F8-6403-4E8B-A919-63C18387A84F}
+		{61E6D415-CA7E-409C-A271-725C3C455693} = {8533C784-6F75-445E-84EA-8D24AA83039B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E24ABA27-CF92-4B78-B3E7-E71EDA765E66}

@@ -2,10 +2,10 @@
 
 namespace RealEstateRelationship.Application.Persistence
 {
-    public interface IAsyncAnnoucementRepository
+    public interface IAsyncAnnouncementRepository
     {
         Task<Announcement> GetByIdAsync(Guid Id);
         Task<Announcement> AddAsync(Announcement entity);
-        Task ValidateAsync(Guid Id);
+        Task<Announcement> ValidateAsync(Guid Id);
     }
 }

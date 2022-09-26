@@ -7,5 +7,6 @@
         public string Description { get; set; }
         public Localisation Localisation { get; set; }
         public AnouncementTypeEnum Type { get; set; }
+        public AnnouncementStatus Status { get; set; }
     }
 }

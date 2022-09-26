@@ -1,8 +1,9 @@
 using AutoMapper;
 using MediatR;
-using RealEstateRelationship.Application.Features.Events;
+using RealEstateRelationship.Application.Features.Queries;
 using RealEstateRelationship.Application.Persistence;
 using RealEstateRelationship.Application.Profiles;
+using RealEstateRelationship.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +14,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddMediatR(typeof(AnnouncementVm));
+builder.Services.AddMediatR(typeof(AnnouncementQuery));
 builder.Services.AddSingleton<IMapper, MappingProfile>();
-builder.Services.AddSingleton<IAsyncAnnoucementRepository, AnnouncementRepository>();
+builder.Services.AddSingleton<IAsyncAnnouncementRepository, AnnouncementRepository>();
+builder.Services.AddSingleton<IMyContext, MyContext>();
 
 var app = builder.Build();
 

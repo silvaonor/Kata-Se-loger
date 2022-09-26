@@ -10,11 +10,12 @@
     <PackageReference Include="MediatR" Version="10.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RealEstateRelationship.Application\RealEstateRelationship.Application.csproj" />
+    <ProjectReference Include="..\RealEstateRelationship.Infrastructure\RealEstateRelationship.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

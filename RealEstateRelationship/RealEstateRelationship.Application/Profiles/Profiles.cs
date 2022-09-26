@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using RealEstateRelationship.Application.Features.Events;
+using RealEstateRelationship.Application.Features.Queries;
 using RealEstateRelationship.Domain.Entities;
 using System.Linq.Expressions;
 
@@ -9,7 +9,7 @@ namespace RealEstateRelationship.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Announcement, AnnouncementVm>();
+            CreateMap<Announcement, AnnouncementQuery>();
         }
 
         public IConfigurationProvider ConfigurationProvider => throw new NotImplementedException();
