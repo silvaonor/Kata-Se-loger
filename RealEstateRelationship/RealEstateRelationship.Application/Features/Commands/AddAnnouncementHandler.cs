@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using RealEstateRelationship.Application.Persistence;
+using RealEstateRelationship.Application.Persistence.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +12,9 @@ namespace RealEstateRelationship.Application.Features.Commands
     public class AddAnnouncementHandler : IRequestHandler<AddAnnouncement, AnnouncementCommand>
     {
         private readonly IMapper _mapper;
-        private readonly IAsyncAnnouncementRepository _repository;
+        private readonly IAnnouncementRepository _repository;
 
-        public AddAnnouncementHandler(IMapper mapper, IAsyncAnnouncementRepository repository)
+        public AddAnnouncementHandler(IMapper mapper, IAnnouncementRepository repository)
         {
             _mapper = mapper;
             _repository = repository;

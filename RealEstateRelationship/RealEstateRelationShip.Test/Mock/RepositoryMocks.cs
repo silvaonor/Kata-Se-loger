@@ -1,5 +1,5 @@
 ﻿using Moq;
-using RealEstateRelationship.Application.Persistence;
+using RealEstateRelationship.Application.Persistence.Repository;
 using RealEstateRelationship.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -26,9 +26,9 @@ namespace RealEstateRelationShip.Test.Mock
             { NoLocationAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "No Location", Description = "No Location", Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
         };
 
-        public static Mock<IAsyncAnnouncementRepository> GetAnnouncementRepository()
+        public static Mock<IAnnouncementRepository> GetAnnouncementRepository()
         {
-            var mock = new Mock<IAsyncAnnouncementRepository>();
+            var mock = new Mock<IAnnouncementRepository>();
             //Violate DRY since our infrastructure is... already kind of a fancy mock
             mock.Setup(repo => repo.GetByIdAsync(It.IsAny<Guid>())).ReturnsAsync((Guid Id) => FakeDatabase.ContainsKey(Id) ? FakeDatabase[Id] : null);
             mock.Setup(repo => repo.AddAsync(It.IsAny<Announcement>())).ReturnsAsync((Announcement announcement) =>

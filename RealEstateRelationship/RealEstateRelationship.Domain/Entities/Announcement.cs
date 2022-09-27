@@ -1,6 +1,8 @@
-﻿namespace RealEstateRelationship.Domain.Entities
+﻿using RealEstateRelationship.Domain.Common;
+
+namespace RealEstateRelationship.Domain.Entities
 {
-    public class Announcement
+    public class Announcement : AgregateRoot
     {
         public Guid Id { get; set; }
         public string Title { get; set; }

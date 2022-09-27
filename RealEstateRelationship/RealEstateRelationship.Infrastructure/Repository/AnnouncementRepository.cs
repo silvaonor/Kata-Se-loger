@@ -1,9 +1,9 @@
-﻿using RealEstateRelationship.Application.Persistence;
+﻿using RealEstateRelationship.Application.Persistence.Repository;
 using RealEstateRelationship.Domain.Entities;
 
 namespace RealEstateRelationship.Infrastructure
 {
-    public class AnnouncementRepository : IAsyncAnnouncementRepository
+    public class AnnouncementRepository : IAnnouncementRepository
     {
         private readonly IMyContext _context;
         public AnnouncementRepository(IMyContext context)
@@ -11,24 +11,23 @@ namespace RealEstateRelationship.Infrastructure
             _context = context;
         }
 
-        public Task<Announcement> AddAsync(Announcement entity)
+        public async Task<Announcement> AddAsync(Announcement entity)
         {
             entity.Id = Guid.NewGuid();
             _context.FakeDatabase.Add(entity.Id, entity);
-            return Task.FromResult(entity);
+            return await Task.FromResult(entity).ConfigureAwait(false);
         }
 
-        public Task<Announcement> GetByIdAsync(Guid Id)
+        public async Task<Announcement> GetByIdAsync(Guid Id)
         {
-            if (!_context.FakeDatabase.ContainsKey(Id)) return null;
-            return Task.FromResult(_context.FakeDatabase[Id]);
+            return await (!_context.FakeDatabase.ContainsKey(Id) ? null : Task.FromResult(_context.FakeDatabase[Id])).ConfigureAwait(false);
         }
 
-        public Task<Announcement> ValidateAsync(Guid Id)
+        public async Task<Announcement> ValidateAsync(Guid Id)
         {
             if (!_context.FakeDatabase.ContainsKey(Id)) return null;
             _context.FakeDatabase[Id].Status = AnnouncementStatus.Validated;
-            return Task.FromResult(_context.FakeDatabase[Id]);
+            return await Task.FromResult(_context.FakeDatabase[Id]).ConfigureAwait(false);
         }
     }
 }
