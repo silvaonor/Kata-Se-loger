@@ -22,7 +22,7 @@ namespace RealEstateRelationship.Application.Features.Commands
 
         public Task<AnnouncementCommand> Handle(AddAnnouncement request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            throw new Exception();
         }
     }
 }

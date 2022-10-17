@@ -26,7 +26,7 @@ namespace RealEstateRelationship.Infrastructure
         public async Task<Announcement> ValidateAsync(Guid Id)
         {
             if (!_context.FakeDatabase.ContainsKey(Id)) return null;
-            _context.FakeDatabase[Id].Status = AnnouncementStatus.Validated;
+            //_context.FakeDatabase[Id].Status = AnnouncementStatus.Validated;
             return await Task.FromResult(_context.FakeDatabase[Id]).ConfigureAwait(false);
         }
     }

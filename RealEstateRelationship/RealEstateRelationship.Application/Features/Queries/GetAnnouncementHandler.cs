@@ -19,20 +19,6 @@ namespace RealEstateRelationship.Application.Features.Queries
         {
             var result = await _repository.GetByIdAsync(request.Id);
             return _mapper.Map<AnnouncementQuery>(result);
-                //Task.FromResult(new AnnouncementQuery()
-                //{
-                //    Id = result.Result.Id,
-                //    Description = result.Result.Description,
-                //    Localisation = new LocalisationQueriesVm
-                //    {
-                //        City = result.Result.Localisation.City,
-                //        Country = result.Result.Localisation.Country,
-                //        Street = result.Result.Localisation.Street,
-                //    },
-                //    Status = (int)result.Result.Status,
-                //    Title = result.Result.Title,
-                //    Type = (int)result.Result.Type,
-                //});
         }
     }
 }
