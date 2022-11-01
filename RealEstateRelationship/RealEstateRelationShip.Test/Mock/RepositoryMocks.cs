@@ -11,6 +11,11 @@ namespace RealEstateRelationShip.Test.Mock
 {
     public static class RepositoryMocks
     {
+        public static readonly Localisation CarParkLocalisation = new Localisation() { City = "Paris", Country = "France" };
+        public static readonly Localisation AppartmentLocalisation = new Localisation() { City = "Lyon", Country = "France" };
+        public static readonly Localisation HouseLocalisation = new Localisation() { City = "Toulouse", Country = "France" };
+        public static readonly Localisation NoDetailLocalisation = new Localisation() { City = "Marseille", Country = "France" };
+
         public static readonly Guid CarParkAnnouncementGuid = Guid.Parse("37f8bf95-dbfb-490d-8e1c-12543a5c833f");
         public static readonly Guid AppartmentAnnouncementGuid = Guid.Parse("17a41fc5-6491-4990-bab4-651b949b4fbe");
         public static readonly Guid HouseAnnouncementGuid = Guid.Parse("2762220f-6679-4f50-8b1e-7258eef86d67");
@@ -19,11 +24,11 @@ namespace RealEstateRelationShip.Test.Mock
 
         public static Dictionary<Guid, Announcement> FakeDatabase = new Dictionary<Guid, Announcement>()
         {
-            { CarParkAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "Car Park", Description = "Car Park" } }, //, Localisation = new Localisation(){ City = "Paris", Country = "France" }, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.CarPark } },
-            { AppartmentAnnouncementGuid , new Announcement(){Id = AppartmentAnnouncementGuid,Title = "Appartment", Description = "Appartment"} }, //, Localisation = new Localisation(){ City = "Lyon", Country = "France" }, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.Appartment } },
-            { HouseAnnouncementGuid , new Announcement(){Id = HouseAnnouncementGuid,Title = "House", Description = "House"} }, //, Localisation = new Localisation(){ City = "Toulouse", Country = "France" }, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
-            { NoDetailAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid} }, //, Localisation = new Localisation(){ City = "Marseille", Country = "France" }, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.Appartment } },
-            { NoLocationAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "No Location", Description = "No Location"} }, //, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
+            { CarParkAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "Car Park", Description = "Car Park" , Localisation = CarParkLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.CarPark } },
+            { AppartmentAnnouncementGuid , new Announcement(){Id = AppartmentAnnouncementGuid,Title = "Appartment", Description = "Appartment", Localisation = AppartmentLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.Appartment } },
+            { HouseAnnouncementGuid , new Announcement(){Id = HouseAnnouncementGuid,Title = "House", Description = "House", Localisation = HouseLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
+            { NoDetailAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid, Localisation = NoDetailLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.Appartment } },
+            { NoLocationAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "No Location", Description = "No Location", Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
         };
 
         public static Mock<IAnnouncementRepository> GetAnnouncementRepository()
@@ -40,7 +45,7 @@ namespace RealEstateRelationShip.Test.Mock
             mock.Setup(repo => repo.ValidateAsync(It.IsAny<Guid>())).ReturnsAsync((Guid Id) =>
             {
                 if (!FakeDatabase.ContainsKey(Id)) return null;
-                //FakeDatabase[Id].Status = AnnouncementStatus.Validated;
+                FakeDatabase[Id].Status = AnnouncementStatus.Validated;
                 return FakeDatabase[Id];
                 });
             return mock;

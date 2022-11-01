@@ -2,7 +2,7 @@
 
 namespace RealEstateRelationship.Application.Features.Queries
 {
-    public class GetAnnouncement : IRequest<AnnouncementQuery>
+    public class GetAnnouncement : IRequest<AnnouncementResponse>
     {
         public readonly Guid Id;
 

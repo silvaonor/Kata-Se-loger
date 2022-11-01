@@ -26,10 +26,7 @@ namespace RealEstateRelationShip.Test.Features
         {
             var handler = new GetAnnouncementHandler(_mapper, _MockAnnouncementRepository.Object);
             var result = await handler.Handle(new GetAnnouncement(RepositoryMocks.HouseAnnouncementGuid), CancellationToken.None);
-            List<int> test = new List<int>() {3, 4,1, 2, -1};
-
-            result.ShouldBe(new AnnouncementQuery() { Id = RepositoryMocks.HouseAnnouncementGuid, Title = "House", Description = "House"});
-            //result.ShouldBe(new AnnouncementQuery() { Id = RepositoryMocks.HouseAnnouncementGuid, Title = "House", Description = "House", Localisation = new LocalisationQueriesVm() { City = "Toulouse", Country = "France" }, Status = 0, Type = 1 });
+            result.ShouldBeEquivalentTo(new AnnouncementResponse() { Id = RepositoryMocks.HouseAnnouncementGuid, Title = "House", Description = "House", Localisation = new LocalisationResponse() { City = "Toulouse", Country = "France" }, Status = 0, Type = 1 });
 
         }
 

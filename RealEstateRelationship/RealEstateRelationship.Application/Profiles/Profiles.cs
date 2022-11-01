@@ -10,9 +10,9 @@ namespace RealEstateRelationship.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Localisation, LocalisationQueriesVm>();
-            CreateMap<Announcement, AnnouncementQuery>().IncludeMembers(x=>x.Localisation);
-            
+            CreateMap<Localisation, LocalisationResponse>();
+            CreateMap<Announcement, AnnouncementResponse>()
+                .ForMember(x => x.Localisation, opt => opt.MapFrom(x => x.Localisation));
         }
     }
 }

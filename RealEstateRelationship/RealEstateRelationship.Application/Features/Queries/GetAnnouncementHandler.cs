@@ -4,7 +4,7 @@ using RealEstateRelationship.Application.Persistence.Repository;
 
 namespace RealEstateRelationship.Application.Features.Queries
 {
-    public class GetAnnouncementHandler : IRequestHandler<GetAnnouncement, AnnouncementQuery>
+    public class GetAnnouncementHandler : IRequestHandler<GetAnnouncement, AnnouncementResponse>
     {
         private readonly IMapper _mapper;
         private readonly IAnnouncementRepository _repository;
@@ -15,10 +15,10 @@ namespace RealEstateRelationship.Application.Features.Queries
             _repository = repository;
         }
 
-        public async Task<AnnouncementQuery> Handle(GetAnnouncement request, CancellationToken cancellationToken)
+        public async Task<AnnouncementResponse> Handle(GetAnnouncement request, CancellationToken cancellationToken)
         {
             var result = await _repository.GetByIdAsync(request.Id);
-            return _mapper.Map<AnnouncementQuery>(result);
+            return _mapper.Map<AnnouncementResponse>(result);
         }
     }
 }
