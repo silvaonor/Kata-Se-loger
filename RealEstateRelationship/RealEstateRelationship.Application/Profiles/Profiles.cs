@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using RealEstateRelationship.Application.Features.Queries;
 using RealEstateRelationship.Domain.Entities;
+using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RealEstateRelationship.Application.Profiles
 {
@@ -8,7 +10,8 @@ namespace RealEstateRelationship.Application.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Announcement, AnnouncementQuery>();
+            CreateMap<Localisation, LocalisationQueriesVm>();
+            CreateMap<Announcement, AnnouncementQuery>().IncludeMembers(x=>x.Localisation);
             
         }
     }
