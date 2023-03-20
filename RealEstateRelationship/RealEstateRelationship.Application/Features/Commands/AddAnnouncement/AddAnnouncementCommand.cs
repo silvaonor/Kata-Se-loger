@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateRelationship.Application.Features.Commands
+namespace RealEstateRelationship.Application.Features.Commands.AddAnnouncement
 {
-    public class AnnouncementCommand
+    public class AddAnnouncementCommand
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -14,7 +14,7 @@ namespace RealEstateRelationship.Application.Features.Commands
         public LocalisationCommand Localisation { get; set; }
         public int Type { get; set; }
         public int Status { get; set; }
-        
+
     }
 
     public class LocalisationCommand

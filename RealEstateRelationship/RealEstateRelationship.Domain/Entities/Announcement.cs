@@ -1,4 +1,5 @@
 ﻿using RealEstateRelationship.Domain.Common;
+using RealEstateRelationship.Domain.Entities.Enum;
 
 namespace RealEstateRelationship.Domain.Entities
 {
@@ -8,7 +9,7 @@ namespace RealEstateRelationship.Domain.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public Localisation Localisation { get; set; }
-        public AnouncementTypeEnum Type { get; set; }
+        public AnouncementType Type { get; set; }
         public AnnouncementStatus Status { get; set; }
     }
 }

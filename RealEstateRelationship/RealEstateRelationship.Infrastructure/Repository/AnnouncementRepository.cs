@@ -1,5 +1,6 @@
 ﻿using RealEstateRelationship.Application.Persistence.Repository;
 using RealEstateRelationship.Domain.Entities;
+using RealEstateRelationship.Domain.Entities.Enum;
 
 namespace RealEstateRelationship.Infrastructure
 {

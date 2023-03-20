@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RealEstateRelationship.Application.Features.Commands
+namespace RealEstateRelationship.Application.Features.Commands.AddAnnouncement
 {
-    public class AddAnnouncementHandler : IRequestHandler<AddAnnouncement, AnnouncementCommand>
+    public class AddAnnouncementHandler : IRequestHandler<AddAnnouncement, AddAnnouncementCommand>
     {
         private readonly IMapper _mapper;
         private readonly IAnnouncementRepository _repository;
@@ -20,7 +20,7 @@ namespace RealEstateRelationship.Application.Features.Commands
             _repository = repository;
         }
 
-        public Task<AnnouncementCommand> Handle(AddAnnouncement request, CancellationToken cancellationToken)
+        public Task<AddAnnouncementCommand> Handle(AddAnnouncement request, CancellationToken cancellationToken)
         {
             throw new Exception();
         }

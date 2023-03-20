@@ -1,11 +1,7 @@
 ﻿using Moq;
 using RealEstateRelationship.Application.Persistence.Repository;
 using RealEstateRelationship.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RealEstateRelationship.Domain.Entities.Enum;
 
 namespace RealEstateRelationShip.Test.Mock
 {
@@ -24,11 +20,11 @@ namespace RealEstateRelationShip.Test.Mock
 
         public static Dictionary<Guid, Announcement> FakeDatabase = new Dictionary<Guid, Announcement>()
         {
-            { CarParkAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "Car Park", Description = "Car Park" , Localisation = CarParkLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.CarPark } },
-            { AppartmentAnnouncementGuid , new Announcement(){Id = AppartmentAnnouncementGuid,Title = "Appartment", Description = "Appartment", Localisation = AppartmentLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.Appartment } },
-            { HouseAnnouncementGuid , new Announcement(){Id = HouseAnnouncementGuid,Title = "House", Description = "House", Localisation = HouseLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
-            { NoDetailAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid, Localisation = NoDetailLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.Appartment } },
-            { NoLocationAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "No Location", Description = "No Location", Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementTypeEnum.House } },
+            { CarParkAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "Car Park", Description = "Car Park" , Localisation = CarParkLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementType.CarPark } },
+            { AppartmentAnnouncementGuid , new Announcement(){Id = AppartmentAnnouncementGuid,Title = "Appartment", Description = "Appartment", Localisation = AppartmentLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementType.Appartment } },
+            { HouseAnnouncementGuid , new Announcement(){Id = HouseAnnouncementGuid,Title = "House", Description = "House", Localisation = HouseLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementType.House } },
+            { NoDetailAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid, Localisation = NoDetailLocalisation, Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementType.Appartment } },
+            { NoLocationAnnouncementGuid , new Announcement(){Id = CarParkAnnouncementGuid,Title = "No Location", Description = "No Location", Status = AnnouncementStatus.WaitingForValidation, Type = AnouncementType.House } },
         };
 
         public static Mock<IAnnouncementRepository> GetAnnouncementRepository()

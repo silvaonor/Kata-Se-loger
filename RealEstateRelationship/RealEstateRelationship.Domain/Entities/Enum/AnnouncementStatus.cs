@@ -1,4 +1,4 @@
-﻿namespace RealEstateRelationship.Domain.Entities
+﻿namespace RealEstateRelationship.Domain.Entities.Enum
 {
     public enum AnnouncementStatus
     {

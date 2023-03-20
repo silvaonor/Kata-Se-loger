@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RealEstateRelationship.Application.Features.Commands;
+using RealEstateRelationship.Application.Features.Commands.AddAnnouncement;
 using RealEstateRelationship.Application.Features.Queries;
 
 namespace RealEstateRelationship.WebAPI.Controllers
@@ -25,7 +26,7 @@ namespace RealEstateRelationship.WebAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAnnouncement([FromBody] AnnouncementCommand command)
+        public async Task<IActionResult> AddAnnouncement([FromBody] AddAnnouncementCommand command)
         {
             var response = await _mediator.Send(new AddAnnouncement(command));
             return Ok(response);
